@@ -1,9 +1,16 @@
 import { useState } from "react";
-
-import "./App.css";
+import Nav from "./components/Nav";
+import Dashboard from "./components/Dashboard";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <div className="flex">
+        <Nav />
+        <Dashboard />
+      </div>
+    </>
+  );
 }
 
 export default App;
