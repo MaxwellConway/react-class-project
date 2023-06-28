@@ -6,8 +6,12 @@ function App() {
   return (
     <>
       <div className="flex">
-        <Nav />
-        <Dashboard />
+        <div>
+          <Nav />
+        </div>
+        <div className="w-full">
+          <Dashboard />
+        </div>
       </div>
     </>
   );
