@@ -2,7 +2,7 @@ import React from "react";
 
 const NavLink = ({ link, isMenuOpen }) => {
   return (
-    <div className="flex items-center gap-5 transition ease-in-out delay-100 hover:bg-hover-yellow h-10 pl-2 rounded-l-full hover:text-black hover:cursor-pointer">
+    <div className="flex items-center gap-5 transition ease-in-out delay-400 hover:bg-hover-yellow h-10 pl-2 rounded-l-full hover:text-black hover:cursor-pointer">
       <img class="h-5 w-5" src={link.icon} alt="" />
       {isMenuOpen && <>{link.name}</>}
     </div>
