@@ -151,7 +151,7 @@ const Dashboard = () => {
           <Stats stat={stat} />
         ))}
       </div>
-      <div className="p-10 justify-evenly flex border-solid border-2 border-green-700	">
+      <div className="p-10 h-4/5 justify-evenly flex border-solid border-2 border-green-700	">
         <div className="border-solid border-2 border-red-700	">
           {/* {tasks.map((task) => ( */}
           <TaskTable tasks={tasks} />

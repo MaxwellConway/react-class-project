@@ -1,6 +1,6 @@
 import React from "react";
 import TaskColumn from "./TaskColumn";
-import { useTable } from "react-table";
+// import { useTable } from "react-table";
 
 const TaskTable = ({ tasks }) => {
   //   const data = React.useMemo(() => tasks, []);
