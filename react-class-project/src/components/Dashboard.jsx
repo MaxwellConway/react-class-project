@@ -5,6 +5,7 @@ import commentsIcon from "../assets/icons/icons8-messages-50.png";
 import earningIcon from "../assets/icons/icons8-stack-of-money-50.png";
 import TaskTable from "./TaskTable";
 import UserTable from "./UserTable";
+import avi from "../assets/icons/avi.png";
 
 const Dashboard = () => {
   const stats = [
@@ -138,26 +139,35 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <div>
-          <input type="text" placeholder="Search..." /> {/* Search bar */}
+      <div className="flex justify-center pt-4 w-10/12">
+        <div className="flex justify-center">
+          <input
+            type="text"
+            placeholder="Search here"
+            className="border-gray-400 border rounded-3xl px-3 py-1 text-gray-500 leading-tight"
+            style={{ width: "200px" }}
+          />
         </div>
-        <div>
-          <img src="avi.jpg" alt="Avatar" /> {/* Image */}
+        <div className="items-center">
+          <div className="flex items-center justify-center rounded-full bg-gray-300 h-10 w-10">
+            <img
+              src={avi}
+              alt="Avatar"
+              className="h-8 w-8 rounded-full object-cover"
+            />
+          </div>
         </div>
       </div>
-      <div className="flex justify-center space-x-7 pl-5 pr-5 pt-5">
+      <div className="flex justify-center space-x-7 pl-5 pr-5 pt-2">
         {stats.map((stat) => (
           <Stats stat={stat} />
         ))}
       </div>
-      <div className="p-10 h-4/5 justify-evenly flex border-solid border-2 border-green-700	">
-        <div className="border-solid border-2 border-red-700	">
-          {/* {tasks.map((task) => ( */}
+      <div className="p-10 h-4/5 justify-evenly flex">
+        <div className="border-solid border-2 border-red-700">
           <TaskTable tasks={tasks} />
-          {/* ))} */}
         </div>
-        <div className="border-solid border-2 border-blue-700	">
+        <div className="border-solid border-2 border-blue-700">
           {users.map((user) => (
             <UserTable user={user} />
           ))}
