@@ -139,8 +139,8 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="flex justify-center pt-4 w-10/12">
-        <div className="flex justify-center">
+      <div className="flex items-center justify-between px-4 py-2">
+        <div className="flex items-center pl-96">
           <input
             type="text"
             placeholder="Search here"
@@ -148,14 +148,12 @@ const Dashboard = () => {
             style={{ width: "200px" }}
           />
         </div>
-        <div className="items-center">
-          <div className="flex items-center justify-center rounded-full bg-gray-300 h-10 w-10">
-            <img
-              src={avi}
-              alt="Avatar"
-              className="h-8 w-8 rounded-full object-cover"
-            />
-          </div>
+        <div className="flex items-center">
+          <img
+            src={avi}
+            alt="Avatar"
+            className="h-8 w-8 rounded-full object-cover"
+          />
         </div>
       </div>
       <div className="flex justify-center space-x-7 pl-5 pr-5 pt-2">
