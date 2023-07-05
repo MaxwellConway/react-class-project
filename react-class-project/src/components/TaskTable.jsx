@@ -1,75 +1,74 @@
 import React from "react";
 import TaskColumn from "./TaskColumn";
-// import { useTable } from "react-table";
+import {
+  useReactTable,
+  getCoreRowModel,
+  flexRender,
+} from "@tanstack/react-table";
+import { useMemo } from "react";
 
 const TaskTable = ({ tasks }) => {
-  //   const data = React.useMemo(() => tasks, []);
-  // const columns = React
+  const data = useMemo(() => tasks, []);
+
+  /** @type import (`@tanstack/react-table`).ColumnDef<any> */
+
+  const columns = [
+    {
+      header: `Title`,
+      accessorKey: `title`,
+    },
+    {
+      header: `State`,
+      accessorKey: `state`,
+    },
+    {
+      header: `Description`,
+      accessorKey: `description`,
+    },
+    {
+      header: `Assignee`,
+      accessorKey: `assignee`,
+    },
+  ];
+
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
   return (
-    <div>
-      <div className="flex justify-evenly">
-        <h1>Tasks</h1>
-        <h1>View All</h1>
-      </div>
-      <div className="flex">
-        <div className="border-solid border-2 border-green-700">
-          <h2>Title</h2>
-          {tasks.map((task) => (
-            <TaskColumn task={task.title} />
+    <div className="task-table">
+      <h1>HI!</h1>
+      <table className="table-auto w-full">
+        <thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th key={header.id}>
+                  {flexRender(
+                    header.column.columnDef.header,
+                    header.getContext()
+                  )}
+                </th>
+              ))}
+            </tr>
           ))}
-        </div>
-        <div className="border-solid border-2 border-green-700">
-          <h2>State</h2>
-          {tasks.map((task) => (
-            <TaskColumn task={task.state} />
+        </thead>
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
           ))}
-        </div>
-        <div className="border-solid border-2 border-green-700">
-          <h2>Description</h2>
-          {tasks.map((task) => (
-            <TaskColumn task={task.description} />
-          ))}
-        </div>
-        <div className="border-solid border-2 border-green-700">
-          <h2>Assignee</h2>
-          {tasks.map((task) => (
-            <TaskColumn task={task.assignee} />
-          ))}
-        </div>
-      </div>
+        </tbody>
+      </table>
     </div>
   );
 };
 
 export default TaskTable;
-
-//    <div className="flex justify-evenly">
-//         <h1>Tasks</h1>
-//         <h1>View All</h1>
-//       </div>
-//       <div className="flex">
-//         <div className="border-solid border-2 border-green-700">
-//           <h2>Title</h2>
-//           {tasks.map((task) => (
-//             <TaskColumn task={task.title} />
-//           ))}
-//         </div>
-//         <div className="border-solid border-2 border-green-700">
-//           <h2>State</h2>
-//           {tasks.map((task) => (
-//             <TaskColumn task={task.state} />
-//           ))}
-//         </div>
-//         <div className="border-solid border-2 border-green-700">
-//           <h2>Description</h2>
-//           {tasks.map((task) => (
-//             <TaskColumn task={task.description} />
-//           ))}
-//         </div>
-//         <div className="border-solid border-2 border-green-700">
-//           <h2>Assignee</h2>
-//           {tasks.map((task) => (
-//             <TaskColumn task={task.assignee} />
-//           ))}
-//         </div>
-//       </div>
