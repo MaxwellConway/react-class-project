@@ -1,0 +1,8 @@
+td[id="State-Completed"]:nth-child(2) span {
+  background-color: green !important;
+  color: white;
+}
+
+.header {
+  color: red;
+}
