@@ -161,8 +161,8 @@ const Dashboard = () => {
           <Stats stat={stat} />
         ))}
       </div>
-      <div className="p-10 h-4/5 justify-evenly flex">
-        <div className="border-solid border-2 border-red-700">
+      <div className="p-10 h-4/5 flex">
+        <div className="">
           <TaskTable tasks={tasks} />
         </div>
         <div className="border-solid border-2 border-blue-700">
