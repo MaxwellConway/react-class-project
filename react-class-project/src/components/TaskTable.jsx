@@ -50,7 +50,7 @@ const TaskTable = ({ tasks }) => {
           View All
         </button>
       </div>
-      <div className="shadow-xl rounded-lg w-2/3">
+      <div className="shadow-xl rounded-lg w-full">
         <table className="w-full bg-white border divide-y divide-gray-200">
           <thead className="bg-gray-50">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -76,7 +76,7 @@ const TaskTable = ({ tasks }) => {
                   <td
                     key={cell.id}
                     id={`State-${row.original.state}`}
-                    className="px-3 py-2 whitespace-nowrap text-sm text-gray-500"
+                    className="px-3 py-2 whitespace-wrap text-sm text-gray-500"
                   >
                     <span>
                       {flexRender(

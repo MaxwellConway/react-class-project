@@ -1,20 +1,10 @@
 import Stats from "./Stats";
-import viewIcon from "../assets/icons/icons8-eye-50.png";
-import salesIcon from "../assets/icons/icons8-shopping-cart-50.png";
-import commentsIcon from "../assets/icons/icons8-messages-50.png";
-import earningIcon from "../assets/icons/icons8-stack-of-money-50.png";
 import TaskTable from "./TaskTable";
 import UserTable from "./UserTable";
 import avi from "../assets/icons/avi.png";
 
-const Dashboard = () => {
-  const stats = [
-    { name: "Daily Views", icon: viewIcon, statValue: 1504 },
-    { name: "Sales", icon: salesIcon, statValue: 80 },
-    { name: "Comments", icon: commentsIcon, statValue: 284 },
-    { name: "Earning", icon: earningIcon, statValue: 7842 },
-  ];
-
+// eslint-disable-next-line react/prop-types
+const Dashboard = ({ stats }) => {
   const users = [
     {
       id: 1,
@@ -137,6 +127,8 @@ const Dashboard = () => {
     },
   ];
 
+  console.log(stats);
+
   return (
     <>
       <div className="flex items-center justify-between px-4 py-2">
@@ -161,13 +153,18 @@ const Dashboard = () => {
           <Stats stat={stat} />
         ))}
       </div>
-      <div className="p-10 h-4/5 flex">
-        <div className="">
+      <div className="p-10 flex gap-5">
+        <div className="mb-10 max-h-full">
           <TaskTable tasks={tasks} />
         </div>
-        <div className="border-solid border-2 border-blue-700">
+        <div className="flex flex-col border-solid border-2 rounded-lg shadow-lg">
+          <div className="flex justify-between items-center mb-6">
+            <h1 className="text-3xl font-bold text-left text-yellow-400 pl-5">
+              Users
+            </h1>
+          </div>
           {users.map((user) => (
-            <UserTable user={user} />
+            <UserTable user={user} key={user.id} />
           ))}
         </div>
       </div>

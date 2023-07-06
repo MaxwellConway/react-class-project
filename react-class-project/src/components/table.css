@@ -25,7 +25,3 @@ td[id="State-Scheduled"]:nth-child(2) span {
   border-radius: 5px;
   padding: 2px;
 }
-
-.header {
-  color: red;
-}
